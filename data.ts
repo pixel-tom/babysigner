@@ -3,7 +3,18 @@ import { CharacterParts } from "./types";
 
 export const characterParts: CharacterParts = {
   background: [
-    { id: 0, name: "Blue", image: "/assets/background/blue.png" }
+    { id: 0, name: "Gray", image: "/assets/background/gray.png" },
+    { id: 1, name: "Green", image: "/assets/background/green.png" },
+    { id: 2, name: "Indigo", image: "/assets/background/indigo.png" },
+    { id: 3, name: "Light Blue", image: "/assets/background/light-blue.png" },
+    { id: 4, name: "Light Purple", image: "/assets/background/light-purple.png" },
+    { id: 5, name: "Orange", image: "/assets/background/orange.png" },
+    { id: 6, name: "Pink", image: "/assets/background/pink.png" },
+    { id: 7, name: "Purple", image: "/assets/background/purple.png" },
+    { id: 8, name: "Red", image: "/assets/background/red.png" },
+    { id: 9, name: "Turquoise", image: "/assets/background/turquoise.png" },
+    { id: 10, name: "Yellow", image: "/assets/background/yellow.png" },
+    { id: 11, name: "Sky", image: "/assets/background/sky.png" },
   ],
   type: [
     { id: 0, name: "Alien", image: "/assets/type/alien.png" },
@@ -35,6 +46,9 @@ export const characterParts: CharacterParts = {
     { id: 12, name: "Baby Vest", image: "/assets/clothes/baby-vest.png" },
     { id: 13, name: "Military Vest", image: "/assets/clothes/military-vest.png" },
     { id: 14, name: "Stunt Suit", image: "/assets/clothes/stunt-suit.png" },
+    { id: 15, name: "Diamond", image: "/assets/clothes/diamond.png" },
+    { id: 16, name: "King's Robe", image: "/assets/clothes/kings-robe.png" },
+    { id: 17, name: "Queen's Robe", image: "/assets/clothes/queens-robe.png" },
 ],
   eyes: [
     { id: 0, name: "None", image: "/assets/eyes/none.png" },

@@ -68,7 +68,7 @@ const CharacterPartSelector: React.FC<Props> = ({
 
   return (
     <div className="relative inline-block text-left">
-      <div ref={selectorRef}>
+      <div ref={selectorRef} className="w-36">
         <button
           type="button"
           onClick={() => setIsOpen(selected)}
@@ -79,17 +79,17 @@ const CharacterPartSelector: React.FC<Props> = ({
               <Image
                 src={selectedPart.image}
                 alt={selectedPart.name}
-                width={40}
-                height={40}
+                width={35}
+                height={35}
               />
             )}
-            <span className="ml-3 text-sm">
+            <span className="ml-2 text-xs">
               {selectedPart ? selectedPart.name : "Select part"}
             </span>
           </div>
           <div>
             <svg
-              className="h-4 w-4 m-1 ml-4 text-gray-400"
+              className="h-3 w-3 m-1 text-gray-400"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"

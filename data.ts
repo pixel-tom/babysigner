@@ -128,6 +128,7 @@ export const characterParts: CharacterParts = {
     { id: 8, name: "Red Birdie", image: "/assets/Accessories/red-birdie.png" },
   ],
   special: [
-    { id: 0, name: "None", image: "/assets/special/none.png" }
+    { id: 0, name: "None", image: "/assets/special/none.png" },
+    { id: 1, name: "Bus Ring", image: "/assets/special/bus-ring.png" },
   ],
 };

@@ -1,4 +1,3 @@
-// data.ts
 import { CharacterParts } from "./types";
 
 export const characterParts: CharacterParts = {

@@ -15,14 +15,15 @@ import React, { useRef } from "react";
 
 const Home: NextPage = () => {
   const [selectedParts, setSelectedParts] = useState<SelectedCharacterParts>({
-    background: characterParts.background[0],
-    type: characterParts.type[0],
-    hats: characterParts.hats[0],
-    clothes: characterParts.clothes[0],
-    eyes: characterParts.eyes[0],
-    mouth: characterParts.mouth[0],
+    Background: characterParts.Background[0],
+    Skin: characterParts.Skin[0],
+    Cheeks: characterParts.Cheeks[0],
+    Earrings: characterParts.Earrings[0],
+    Headwear: characterParts.Headwear[0],
+    Clothes: characterParts.Clothes[0],
+    Eyes: characterParts.Eyes[0],
+    Accessories: characterParts.Accessories[0],
     special: characterParts.special[0],
-    vr: characterParts.vr[0],
   });
 
   const handlePartSelect = (category: keyof CharacterParts, partId: number) => {
@@ -42,14 +43,15 @@ const Home: NextPage = () => {
 
   const randomizeCharacter = () => {
     const newSelectedParts: SelectedCharacterParts = {
-      background: getRandomPart("background"),
-      type: getRandomPart("type"),
-      hats: getRandomPart("hats"),
-      clothes: getRandomPart("clothes"),
-      eyes: getRandomPart("eyes"),
-      mouth: getRandomPart("mouth"),
+      Background: getRandomPart("Background"),
+      Skin: getRandomPart("Skin"),
+      Cheeks: getRandomPart("Cheeks"),
+      Earrings: getRandomPart("Earrings"),
+      Headwear: getRandomPart("Headwear"),
+      Clothes: getRandomPart("Clothes"),
+      Eyes: getRandomPart("Eyes"),
+      Accessories: getRandomPart("Accessories"),
       special: characterParts.special[0],
-      vr: characterParts.vr[0],
     };
     setSelectedParts(newSelectedParts);
   };
@@ -61,7 +63,7 @@ const Home: NextPage = () => {
       <Navbar />
       <div className="relative w-full">
         <Image src="/banner.jpeg" alt="Canvas" width={1900} height={250} />
-        <div className="absolute w-full h-full bottom-0 bg-gradient-to-b from-transparent to-[#0F0F0F]" />
+        <div className="absolute w-full h-1/2 bottom-0 bg-gradient-to-b from-transparent to-[#0F0F0F]" />
       </div>
       <div className="max-w-screen-lg w-full px-4 pt-20 -mt-20 sm:-mt-30 md:-mt-40 lg:-mt-60 xl:-mt-96 z-10">
         <div className="p-8 pt-10 grid grid-cols-1 md:grid-cols-2 gap-4 bg-[#111111]  border border-gray-600 rounded-lg shadow-lg">

@@ -129,5 +129,6 @@ export const characterParts: CharacterParts = {
   special: [
     { id: 0, name: "None", image: "/assets/special/none.png" },
     { id: 1, name: "Bus Ring", image: "/assets/special/bus-ring.png" },
+    { id: 1, name: "Fire Ring", image: "/assets/special/fire-ring.png" },
   ],
 };

@@ -10,4 +10,3 @@ export interface CharacterParts {
 export interface SelectedCharacterParts {
   [key: string]: CharacterPart;
 }
-

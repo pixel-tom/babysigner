@@ -1,5 +1,4 @@
-// components/CharacterPreview.tsx
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import NextImage from "next/image";
 import html2canvas from "html2canvas";
 import { CharacterParts, SelectedCharacterParts } from "../types";
@@ -16,19 +15,50 @@ const CharacterPreview: React.FC<Props> = ({
   onRandomize,
   previewRef,
 }) => {
+  const [isImagesLoaded, setIsImagesLoaded] = useState(false);
+
   const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
       window.navigator.userAgent
     );
   };
 
+  useEffect(() => {
+    const preloadImages = async () => {
+      const selectedPartKeys = Object.keys(selectedParts);
+      if (selectedPartKeys.length === 0) return;
+
+      const imagePromises = selectedPartKeys.map((category) => {
+        const part = selectedParts[category];
+        return new Promise<HTMLImageElement>((resolve, reject) => {
+          const image = new Image();
+          image.crossOrigin = "anonymous";
+          image.onload = () => {
+            resolve(image);
+          };
+          image.onerror = reject;
+          image.src = part.image;
+        });
+      });
+
+      try {
+        await Promise.all(imagePromises);
+        setIsImagesLoaded(true);
+      } catch (error) {
+        console.error("Image preload failed:", error);
+      }
+    };
+
+    preloadImages();
+  }, [selectedParts]);
+
   const handleDownload = async () => {
     const selectedPartKeys = Object.keys(selectedParts);
     if (selectedPartKeys.length === 0) return; // No selected parts
-  
+
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
-  
+
     const imagePromises = selectedPartKeys.map((category) => {
       const part = selectedParts[category];
       return new Promise<HTMLImageElement>((resolve, reject) => {
@@ -41,17 +71,17 @@ const CharacterPreview: React.FC<Props> = ({
         image.src = part.image;
       });
     });
-  
+
     try {
       const images = await Promise.all(imagePromises);
-  
+
       canvas.width = images[0].width;
       canvas.height = images[0].height;
-  
+
       images.forEach((image) => {
         context?.drawImage(image, 0, 0);
       });
-  
+
       canvas.toBlob((blob) => {
         if (blob) {
           const url = URL.createObjectURL(blob);
@@ -66,7 +96,6 @@ const CharacterPreview: React.FC<Props> = ({
       console.error("Image download failed:", error);
     }
   };
-  
 
   const handleRandomize = () => {
     const newSelectedParts: SelectedCharacterParts = {};
@@ -75,6 +104,7 @@ const CharacterPreview: React.FC<Props> = ({
       const randomIndex = Math.floor(Math.random() * parts.length);
       newSelectedParts[category as keyof CharacterParts] = parts[randomIndex];
     }
+    setIsImagesLoaded(false);
     onRandomize(newSelectedParts);
   };
 
@@ -84,19 +114,20 @@ const CharacterPreview: React.FC<Props> = ({
         className="relative mx-auto w-72 h-72 md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-lg shadow-lg mb-2"
         ref={previewRef}
       >
-        {Object.keys(selectedParts).map((category) => {
-          const part = selectedParts[category as keyof SelectedCharacterParts];
-          return (
-            <NextImage
-              key={category}
-              src={part.image}
-              alt={part.name}
-              layout="fill"
-              objectFit="responsive"
-              quality={100}
-            />
-          );
-        })}
+        {isImagesLoaded &&
+          Object.keys(selectedParts).map((category) => {
+            const part = selectedParts[category as keyof SelectedCharacterParts];
+            return (
+              <NextImage
+                key={category}
+                src={part.image}
+                alt={part.name}
+                layout="fill"
+                objectFit="responsive"
+                quality={100}
+              />
+            );
+          })}
       </div>
       <div className="flex justify-center">
         <button

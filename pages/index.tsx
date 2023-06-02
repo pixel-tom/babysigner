@@ -15,13 +15,13 @@ import React, { useRef } from "react";
 
 const Home: NextPage = () => {
   const [selectedParts, setSelectedParts] = useState<SelectedCharacterParts>({
-    Background: characterParts.background[0],
+    Background: characterParts.Background[0],
     Skin: characterParts.Skin[0],
     Cheeks: characterParts.Cheeks[0],
     Earrings: characterParts.Earrings[0],
     Headwear: characterParts.Headwear[0],
-    Clothes: characterParts.clothes[0],
-    Eyes: characterParts.eyes[0],
+    Clothes: characterParts.Clothes[0],
+    Eyes: characterParts.Eyes[0],
     Accessories: characterParts.Accessories[0],
     special: characterParts.special[0],
   });

@@ -13,7 +13,6 @@ export const characterParts: CharacterParts = {
     { id: 8, name: "Red", image: "/assets/background/red.png" },
     { id: 9, name: "Turquoise", image: "/assets/background/turquoise.png" },
     { id: 10, name: "Yellow", image: "/assets/background/yellow.png" },
-    { id: 11, name: "Sky", image: "/assets/background/sky.png" },
   ],
   Skin: [
     { id: 0, name: "Alien", image: "/assets/Skin/alien.png" },
@@ -99,8 +98,6 @@ export const characterParts: CharacterParts = {
     { id: 13, name: "Military Vest", image: "/assets/clothes/military-vest.png" },
     { id: 14, name: "Stunt Suit", image: "/assets/clothes/stunt-suit.png" },
     { id: 15, name: "Diamond", image: "/assets/clothes/diamond.png" },
-    { id: 16, name: "King's Robe", image: "/assets/clothes/kings-robe.png" },
-    { id: 17, name: "Queen's Robe", image: "/assets/clothes/queens-robe.png" },
 ],
   Eyes: [
     { id: 0, name: "None", image: "/assets/eyes/none.png" },
@@ -129,6 +126,5 @@ export const characterParts: CharacterParts = {
   special: [
     { id: 0, name: "None", image: "/assets/special/none.png" },
     { id: 1, name: "Bus Ring", image: "/assets/special/bus-ring.png" },
-    { id: 2, name: "Fire Ring", image: "/assets/special/fire-ring.png" },
   ],
 };

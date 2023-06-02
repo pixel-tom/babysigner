@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleDropdownItemClick = (url: string | URL | undefined) => {
-    window.open(url, "_blank");
-  };
-
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
 
   const handleDropdownMouseEnter = () => {
     setIsDropdownOpen(true);
@@ -20,79 +13,18 @@ const Navbar = () => {
     setIsDropdownOpen(false);
   };
 
-  const handleListMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
-
-  const handleListMouseLeave = () => {
-    setIsDropdownOpen(false);
-  };
 
   return (
     <nav className="absolute xl:fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-4 bg-none">
       <div className="text-white text-3xl"></div>
       <div className="flex items-center">
+      
         <div
           className="relative"
           onMouseEnter={handleDropdownMouseEnter}
           onMouseLeave={handleDropdownMouseLeave}
         >
-          <button
-            className="flex items-center focus:outline-none"
-            onClick={handleDropdownToggle}
-          >
-            <Image src="/doge-dark.png" width={40} height={35} alt="" />
-          </button>
-          {isDropdownOpen && (
-            <div
-              className="absolute top-full w-max right-0 bg-[#222222] text-white py-2 px-4 rounded-md"
-              onMouseEnter={handleListMouseEnter}
-              onMouseLeave={handleListMouseLeave}
-            >
-              <ul className="space-y-1">
-                <li>
-                  <button
-                    className="w-full text-left hover:bg-[#333333] py-2 px-3"
-                    onClick={() =>
-                      handleDropdownItemClick("https://www.dogeswap.live/")
-                    }
-                  >
-                    Dogeswap.
-                  </button>
-                </li>
-                <li>
-                  <button
-                    className="w-full text-left hover:bg-[#333333] py-2 px-3"
-                    onClick={() =>
-                      handleDropdownItemClick("https://www.kenl.live/raffles")
-                    }
-                  >
-                    Kenl.
-                  </button>
-                </li>
-                <li>
-                  <button
-                    className="w-full text-left hover:bg-[#333333] py-2 px-3"
-                    onClick={() =>
-                      handleDropdownItemClick("https://www.xnft.gg/app/3DtDRCUxFThJixdpotU2sq7n3Fbzz2bqtQPHaDqjHQae")
-                    }
-                  >
-                    Fetch.
-                  </button>
-                </li>
-                <li>
-                  <button
-                    className="w-full text-left hover:bg-[#333333] py-2 px-3"
-                    onClick={() =>
-                      handleDropdownItemClick("https://thedogecapital.com/nameyourdoge")
-                    }
-                  >
-                    Name Your Doge.
-                  </button>
-                </li>
-              </ul>
-            </div>
-          )}
+
         </div>
         <a
           href="https://twitter.com/thedogecapital"
@@ -136,6 +68,9 @@ const Navbar = () => {
         >
           <Image src="/discord.png" width={35} height={35} alt="" />
         </a>
+        <div className="ml-6">
+          <WalletMultiButton />
+        </div>
       </div>
     </nav>
   );

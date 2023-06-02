@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { characterParts } from "../data";
 import Navbar from "../components/Navbar";
-
 import Image from "next/image";
 import CharacterPartSelector from "../components/DogeTraitSelector";
 import CharacterPreview from "../components/DogePreview";
@@ -61,12 +60,9 @@ const Home: NextPage = () => {
   return (
     <div className="min-h-screen bg-[#0F0F0F] flex flex-col items-center">
       <Navbar />
-      <div className="relative w-full">
-        <Image src="/banner.jpeg" alt="Canvas" width={1900} height={250} />
-        <div className="absolute w-full h-1/2 bottom-0 bg-gradient-to-b from-transparent to-[#0F0F0F]" />
-      </div>
-      <div className="max-w-screen-lg w-full px-4 pt-20 -mt-20 sm:-mt-30 md:-mt-40 lg:-mt-60 xl:-mt-96 z-10">
-        <div className="p-8 pt-10 grid grid-cols-1 md:grid-cols-2 gap-4 bg-[#111111]  border border-gray-600 rounded-lg shadow-lg">
+
+      <div className="max-w-screen-lg w-full px-4 pt-20  z-10">
+        <div className="p-8 pt-10 mt-24 grid grid-cols-1 md:grid-cols-2 gap-4 bg-[#111111]  border border-gray-600 rounded-lg shadow-lg">
           <div>
             <CharacterPreview
               selectedParts={selectedParts}
@@ -95,13 +91,13 @@ const Home: NextPage = () => {
             Powered by
           </h3>
           <a
-            href="https://thedogecapital.com/"
+            href="https://www.monkeybaby.business/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               className="mx-auto"
-              src="/doge.png"
+              src="/mbb.png"
               alt="Doge Capital"
               width="160"
               height="125"

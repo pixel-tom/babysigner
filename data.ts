@@ -38,7 +38,7 @@ export const characterParts: CharacterParts = {
     { id: 3, name: "Gold Hoop", image: "/assets/Earrings/gold-hoop.png" },
     { id: 4, name: "Diamond Stud", image: "/assets/Earrings/diamond-stud.png" },
   ],
-  Headwear: [
+  Headwear: [ 
     { id: 0, name: "None", image: "/assets/Headwear/none.png" },
     { id: 1, name: "Black Backwards Cap", image: "/assets/Headwear/black-backwards-cap.png" },
     { id: 2, name: "Black Cap", image: "/assets/Headwear/black-cap.png" },
@@ -126,5 +126,6 @@ export const characterParts: CharacterParts = {
   special: [
     { id: 0, name: "None", image: "/assets/special/none.png" },
     { id: 1, name: "Bus Ring", image: "/assets/special/bus-ring.png" },
+    { id: 2, name: "Fire Ring", image: "/assets/special/fire-ring.png" },
   ],
 };

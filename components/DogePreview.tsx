@@ -111,7 +111,7 @@ const CharacterPreview: React.FC<Props> = ({
   return (
     <div>
       <div
-        className="relative mx-auto w-72 h-72 md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] bg-none rounded-lg shadow-lg mb-2"
+        className="relative mx-auto w-72 h-72 md:h-78 md:h-78 lg:h-[300px] lg:w-[300px] xl:h-[320px] xl:w-[320px] mb-2"
         ref={previewRef}
       >
         {isImagesLoaded &&
@@ -123,7 +123,7 @@ const CharacterPreview: React.FC<Props> = ({
                 src={part.image}
                 alt={part.name}
                 layout="fill"
-                objectFit="responsive"
+                objectFit="cover"
                 quality={100}
               />
             );
